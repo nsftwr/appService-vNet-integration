@@ -1,0 +1,6 @@
+{
+    "location": "northeurope",
+    "locationAbbrv": "ne",
+    "app": "nsftwr",
+    "env": "dev"
+}
