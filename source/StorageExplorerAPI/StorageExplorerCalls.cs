@@ -21,8 +21,16 @@ namespace StorageExplorerAPI
         public StorageExplorerCalls(ILoggerFactory loggerFactory)
         {
             _logger = loggerFactory.CreateLogger<StorageExplorerCalls>();
-            _storageUri = "https://rudistorage12345.blob.core.windows.net/";
+            _storageUri = "https://nedevstnsftwrdata.blob.core.windows.net/";
             _containerName = "blobs";
+        }
+
+        [Function("ping")]
+        public async Task<HttpResponseData> Ping([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
+        {
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            await response.WriteStringAsync("pong");
+            return response;
         }
 
         [Function("GetAllFiles")]
